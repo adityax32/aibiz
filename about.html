@@ -19,7 +19,18 @@
 
     <header class="site-header container">
       <a class="brand" href="index.html">AI BizModels</a>
-      <nav class="main-nav" aria-label="Primary">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-nav" class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a class="active" href="about.html">About</a>
@@ -64,7 +75,7 @@
           We partner with companies to transform operations using AI,
           intelligent automation, and modern digital infrastructure.
         </p>
-        <ul class="about-points">
+        <ul class="about-capsules">
           <li>Design AI-driven business models</li>
           <li>Build intelligent automation systems</li>
           <li>Develop AI-powered products and platforms</li>

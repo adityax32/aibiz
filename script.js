@@ -19,3 +19,29 @@ if ("IntersectionObserver" in window) {
 } else {
   revealNodes.forEach((node) => node.classList.add("is-visible"));
 }
+
+const menuToggle = document.querySelector(".menu-toggle");
+const primaryNav = document.querySelector("#primary-nav");
+
+if (menuToggle && primaryNav) {
+  menuToggle.addEventListener("click", () => {
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!expanded));
+    primaryNav.classList.toggle("is-open", !expanded);
+  });
+
+  primaryNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth > 620) return;
+      menuToggle.setAttribute("aria-expanded", "false");
+      primaryNav.classList.remove("is-open");
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 620) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      primaryNav.classList.remove("is-open");
+    }
+  });
+}
