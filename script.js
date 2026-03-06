@@ -28,6 +28,7 @@ if (menuToggle && primaryNav) {
     const expanded = menuToggle.getAttribute("aria-expanded") === "true";
     menuToggle.setAttribute("aria-expanded", String(!expanded));
     primaryNav.classList.toggle("is-open", !expanded);
+    document.body.classList.toggle("menu-open", !expanded);
   });
 
   primaryNav.querySelectorAll("a").forEach((link) => {
@@ -35,6 +36,7 @@ if (menuToggle && primaryNav) {
       if (window.innerWidth > 620) return;
       menuToggle.setAttribute("aria-expanded", "false");
       primaryNav.classList.remove("is-open");
+      document.body.classList.remove("menu-open");
     });
   });
 
@@ -42,6 +44,7 @@ if (menuToggle && primaryNav) {
     if (window.innerWidth > 620) {
       menuToggle.setAttribute("aria-expanded", "false");
       primaryNav.classList.remove("is-open");
+      document.body.classList.remove("menu-open");
     }
   });
 }
